@@ -54,8 +54,6 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPasswordField_Pass = new javax.swing.JPasswordField();
         jLabel_Login = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox_UserType = new javax.swing.JComboBox<>();
         jLabel_Logo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -106,45 +104,24 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("User Type:");
-
-        jComboBox_UserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Member", "Admin", "Owner" }));
-        jComboBox_UserType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_UserTypeActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField_Username)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_Username)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(0, 385, Short.MAX_VALUE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(0, 385, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox_UserType, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -160,18 +137,14 @@ public class LoginForm extends javax.swing.JFrame {
                 .addComponent(jTextField_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(54, 54, 54)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox_UserType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGap(95, 95, 95))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(115, 115, 115)
                     .addComponent(jPasswordField_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(154, Short.MAX_VALUE)))
+                    .addContainerGap(157, Short.MAX_VALUE)))
         );
 
         jLabel_Logo.setBackground(new java.awt.Color(255, 255, 255));
@@ -197,7 +170,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +178,8 @@ public class LoginForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)))
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,7 +190,7 @@ public class LoginForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -231,7 +205,7 @@ public class LoginForm extends javax.swing.JFrame {
        //get the username and password 
        String username = jTextField_Username.getText();
        String password = String.valueOf(jPasswordField_Pass.getPassword());
-       String type = (String) jComboBox_UserType.getSelectedItem();
+      
        
        //check if the fields are empty
        if(username.trim().equals("") ||password.trim().equals(""))
@@ -246,8 +220,7 @@ public class LoginForm extends javax.swing.JFrame {
 //            System.out.println("mb = "+member.getUserType());
 //            System.out.println("mb2 = "+member.getFirstName());
                
-               //checkif the user exists
-               
+               //checkif the user exists in members table
                 if(member != null){
 //                if(member != null && type.endsWith("Member")){
                    //we can check if the user is admin or owner or simple user from the database
@@ -255,10 +228,10 @@ public class LoginForm extends javax.swing.JFrame {
                     //if the user type is not owner (admin +user) not show the manage users elements
                     //if the user type is simple user hide the circulation + manage users
 //                    DashboardForm dash_f = new DashboardForm(); 
-                    DashboardForm dash_f = new DashboardForm(username,password); 
-                        if(member.getUserType().equals("user")){
+                    DashboardForm dash_f = new DashboardForm(username,password); //to use editprofile form we set username and password as parameters.
+                    
+                    if(member.getUserType().equals("user")){
                         System.out.println("mem");
-//                        dash_f = new DashboardForm();
                         dash_f.jLabel_Circulationtitle.setVisible(false);
                         dash_f.jButton_ReturnBook.setVisible(false);
                         dash_f.jButton_IssueBook.setVisible(false);
@@ -272,26 +245,21 @@ public class LoginForm extends javax.swing.JFrame {
                         dash_f.jButton_EditBook.setVisible(false);
                         dash_f.jButton_AddBook.setVisible(false);
                         dash_f.jButton_Edit_Member.setVisible(false);
-                         //add new edit member form to here as true
+                        //add new edit member form to here as true
                         
-//                        new EditLogedInMemberForm(username,password);
-                            System.out.println("sent");
-//                        editLogedInMemberForm.setVisible(true);
+                        System.out.println("sent");
                     }
-
                     
                     //display the username
                     dash_f.jLabel_welcomeusername.setText("Welcome Back "+member.getUsername());
-                    
-                    
 
                     //display the dashboard form
                     dash_f.setVisible(true);
                     //close the login form
                     this.dispose();
                }
-               //if the user exists
-               else if(user!= null)
+               //checkif the user exists in users table
+               else if(user!= null) 
                {
                    System.out.println("ad or ow if");
                     //we can check if the user is admin or owner or simple user from the database
@@ -299,34 +267,28 @@ public class LoginForm extends javax.swing.JFrame {
                     //if the user type is not owner (admin +user) not show the manage users elements
                     //if the user type is simple user hide the circulation + manage users
                     DashboardForm dash_f = new DashboardForm();
-//                    DashboardForm dash_f = null;
-//                    System.out.println("type = "+user.getUserType());
                     
                     if(user.getUserType().equals("owner")){
                         System.out.println("own"); 
-                     //new edit member false  
+                        //new edit member false  
                     }else if(user.getUserType().equals("admin")){
                         System.out.println("adm"); 
                         dash_f.jButton_ManageUsers.setVisible(false);
                          //new edit member false
                     }
 
+                    //display the username
                     dash_f.jLabel_welcomeusername.setText("Welcome Back "+user.getUsername());
-                   
-                    
-
+ 
                     //display the dashboard form
                     dash_f.setVisible(true);
                     //close the login form
                     this.dispose();
                }
-               
-               
-               //if not
+               //if not 
                else
                {
-               JOptionPane.showMessageDialog(null, "Invalid Username or Password", "Wrong Data",0);
-                   
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password", "Wrong Data",0);    
                }
        }
     }//GEN-LAST:event_jLabel_LoginMouseClicked
@@ -350,10 +312,6 @@ public class LoginForm extends javax.swing.JFrame {
         //change the jlabel background
         jLabel_Login.setBackground(new Color(236, 240, 241));
     }//GEN-LAST:event_jLabel_LoginMouseReleased
-
-    private void jComboBox_UserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_UserTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_UserTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,11 +349,9 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox_UserType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel_Login;
     private javax.swing.JLabel jLabel_Logo;
     private javax.swing.JPanel jPanel1;

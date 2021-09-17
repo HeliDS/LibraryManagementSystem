@@ -222,6 +222,7 @@ public class Member {
     public void editMember( String _fname, String _lname, String _address, String _phone, String _email, String _gender, byte[] _picture, String _username, String _password)
     {
         String editQuery = "UPDATE `members` SET `firstName`=?,`lastName`=?,`address`=?,`phone`=?,`email`=?,`gender`=?,`picture`=?,`username`=?,`password`=? WHERE `username`=?";
+//        where username = '"+_username+"' and password = '"+_password+"'
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(editQuery);
@@ -236,6 +237,7 @@ public class Member {
             ps.setString(8, _username);
             ps.setString(9, _password);
             ps.setString(10, _username);
+//             ps.setString(11, _password);
             
             if(ps.executeUpdate() != 0)
             {

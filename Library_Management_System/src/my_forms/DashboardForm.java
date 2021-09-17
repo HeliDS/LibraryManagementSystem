@@ -919,6 +919,8 @@ public DashboardForm(String username, String password){
 //        EditLogedInMemberForm editLogedInMemberForm = new EditLogedInMemberForm();
 //        editLogedInMemberForm.setVisible(true);
         
+        System.out.println("uname-dash= "+username);
+        System.out.println("pass-dash= "+password);
         new EditLogedInMemberForm(username,password).setVisible(true);
 
     }//GEN-LAST:event_jButton_EditProfileActionPerformed

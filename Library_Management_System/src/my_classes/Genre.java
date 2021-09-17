@@ -22,14 +22,16 @@ public class Genre {
     
     private int id;
     private String name;
+    private String rack;
     
     //constructors
     public Genre(){};
     
-    public Genre(int _id, String _name)
+    public Genre(int _id, String _name, String _rack)
     {
       this.id = _id;
       this.name = _name;
+      this.rack = _rack;
     }
      
     //getters and setters
@@ -41,6 +43,11 @@ public class Genre {
         this.name = _name;
     }
 
+    public void setRack(String rack) {
+        this.rack = rack;
+    }
+
+    
     public int getId() {
         return id;
     }
@@ -48,20 +55,25 @@ public class Genre {
     public String getName() {
         return name;
     }
+
+    public String getRack() {
+        return rack;
+    }
     
     //functions
     
     my_classes.Func_Class func = new Func_Class();
     
     //to insert a new genre function
-    public void addGenre(String _name)
+    public void addGenre(String _name, String _rack)
     {
-        String insertQuery = "INSERT INTO `book_genres`(`name`) VALUES (?)";
+        String insertQuery = "INSERT INTO `book_genres`(`name`,`rack`) VALUES (?,?)";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(insertQuery);
             
             ps.setString(1, _name);
+            ps.setString(2, _rack);
             
             if(ps.executeUpdate() != 0)
             {
@@ -80,16 +92,18 @@ public class Genre {
     }
   
     //to edit genre by id function
-    public void editGenre(int _id, String _name)
+    public void editGenre(int _id, String _name, String _rack)
     {
-        String editQuery = "UPDATE `book_genres` SET `id`=?,`name`= ? WHERE `id`= ?";
+        String editQuery = "UPDATE `book_genres` SET `id`=?,`name`= ?, `rack`=? WHERE `id`= ?";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(editQuery);
             
             ps.setInt(1, _id);
             ps.setString(2, _name);
-            ps.setInt(3, _id);
+            ps.setString(3,_rack);
+            ps.setInt(4, _id);
+
             
             
             
@@ -104,13 +118,14 @@ public class Genre {
             
         } catch (SQLException ex) {
             Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
         
     }
     
     //to remove genre by id function
-    public void removeGenre(int _id, String _name)
+    public void removeGenre(int _id)
     {
         String editQuery = "DELETE FROM `book_genres` WHERE `id`= ?";
         try {
@@ -154,7 +169,7 @@ public class Genre {
             
             while(rs.next())
             {
-                genre = new Genre(rs.getInt("id"), rs.getString("name"));
+                genre = new Genre(rs.getInt("id"), rs.getString("name"),rs.getString("rack"));
                 gList.add(genre);
             }    
             
@@ -179,7 +194,7 @@ public class Genre {
             
             while(rs.next())
             {
-                genre = new Genre(rs.getInt("id"), rs.getString("name"));
+                genre = new Genre(rs.getInt("id"), rs.getString("name"), rs.getString("rack"));
                 map.put(genre.getName(), genre.getId());
             }    
             
@@ -201,7 +216,7 @@ public class Genre {
             while(rs.next())
            
             {
-                genre = new Genre(rs.getInt("id"), rs.getString("name"));
+                genre = new Genre(rs.getInt("id"), rs.getString("name"), rs.getString("rack"));
                 
             }  
         } catch (SQLException ex) {
