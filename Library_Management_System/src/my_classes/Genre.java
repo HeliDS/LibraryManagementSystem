@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -49,6 +50,8 @@ public class Genre {
     }
     
     //functions
+    
+    my_classes.Func_Class func = new Func_Class();
     
     //to insert a new genre function
     public void addGenre(String _name)
@@ -141,7 +144,6 @@ public class Genre {
         ArrayList<Genre> gList = new ArrayList<>();
         
         
-        my_classes.Func_Class func = new Func_Class();
        
           
         try {
@@ -162,5 +164,50 @@ public class Genre {
         
         return gList;
     }
+    
+    //to create a function to return a hashmap
+    //string is the key
+    //integer is the value
+    public HashMap<String, Integer> getGenresMap()
+    {
+        HashMap<String, Integer> map =new HashMap<>();
+     try {
+            ResultSet rs;
+            rs = func.getData("SELECT * FROM `book_genres`");
+            
+            Genre genre;
+            
+            while(rs.next())
+            {
+                genre = new Genre(rs.getInt("id"), rs.getString("name"));
+                map.put(genre.getName(), genre.getId());
+            }    
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+     return map;
+    }
+    
+   //to create a function to get genre by id
+    public Genre getGenreById(Integer id)
+    {
+    ResultSet rs = func.getData("SELECT * FROM `book_genres` where id = "+id);
+            
+            Genre genre = null;
+            
+        try {
+            while(rs.next())
+           
+            {
+                genre = new Genre(rs.getInt("id"), rs.getString("name"));
+                
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return genre;
+    } 
     
 }

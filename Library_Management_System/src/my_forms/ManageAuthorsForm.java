@@ -42,11 +42,12 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
        jTable_Authors_.getTableHeader().setForeground(Color.black);
        jTable_Authors_.getTableHeader().setOpaque(false);
        
+       
        //to hide the jlabel "empty name message"
        jLabel_EmptyFirstName_.setVisible(false);
        jLabel_EmptyLastName_.setVisible(false);
        
-       //populate Jtable With Genres
+       //populate Jtable With authors
         populateJtableWithAuthors();
     }
 
@@ -87,10 +88,13 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
         jLabel_FormTitle.setBackground(new java.awt.Color(0, 0, 102));
         jLabel_FormTitle.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel_FormTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_FormTitle.setText("                           Manage Authors");
+        jLabel_FormTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_FormTitle.setText("Manage Authors");
         jLabel_FormTitle.setOpaque(true);
 
         jLabel_CloseForm_.setBackground(new java.awt.Color(0, 0, 102));
@@ -120,6 +124,7 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
 
         jTextField_ID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
+        jButton_Edit_.setBackground(new java.awt.Color(102, 153, 255));
         jButton_Edit_.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton_Edit_.setText("Edit");
         jButton_Edit_.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +133,7 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
             }
         });
 
+        jButton_Delete_.setBackground(new java.awt.Color(153, 153, 153));
         jButton_Delete_.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton_Delete_.setText("Delete");
         jButton_Delete_.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +142,7 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
             }
         });
 
+        jButton_Add_.setBackground(new java.awt.Color(102, 102, 255));
         jButton_Add_.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton_Add_.setText("Add");
         jButton_Add_.addActionListener(new java.awt.event.ActionListener() {
@@ -232,14 +239,13 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextField_Expertise, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jButton_Add_, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton_Edit_, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton_Delete_, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField_Expertise, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jButton_Add_, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jButton_Edit_, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jButton_Delete_, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(29, 29, 29)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +253,7 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
                                             .addComponent(jLabel_EmptyLastName_)))
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
         );
@@ -283,12 +289,12 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton_Add_, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_Edit_, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_Delete_, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(104, 104, 104))
+                        .addGap(70, 70, 70))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -343,11 +349,11 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
         String about = jTextArea_About.getText();
         
         //check if the textfields are empty
-        if(fname.isEmpty())
+        if(fname.trim().isEmpty())
         {
           jLabel_EmptyFirstName_.setVisible(true);
         }
-        else if(lname. isEmpty())
+        else if(lname.trim(). isEmpty())
         {
             jLabel_EmptyLastName_.setVisible(true);
         }    
@@ -356,8 +362,12 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
            
            author.editAuthor(id, fname, lname, expertise, about);
            
-            //to refresh the jtable genres
-            populateJtableWithAuthors();
+        //to refresh Jtable with authors
+        populateJtableWithAuthors();
+         
+        //hide jlabels
+        jLabel_EmptyLastName_.setVisible(false);
+        jLabel_EmptyFirstName_.setVisible(false);
            
         }
         
@@ -392,9 +402,16 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
         {
             
          //  System.out.println("not empty genre");
-        author.removeAuthor(id, fname, lname, expertise, about);
+         //show confirmation message before removing the author
+         int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to Delete this Author?", "Confirmation Box",JOptionPane.YES_NO_OPTION);
+         
+         if (confirm == JOptionPane.YES_OPTION)
+            {
+            author.removeAuthor(id, fname, lname, expertise, about);
+            }
+        
             
-         //to refresh the jtable genres
+         //to refresh the jtable authors
             populateJtableWithAuthors(); 
             
         //to clear text from the textfields
@@ -416,11 +433,11 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
         String about = jTextArea_About.getText();
         
         //check if the textfields are empty
-        if(fname.isEmpty())
+        if(fname.trim().isEmpty())
         {
           jLabel_EmptyFirstName_.setVisible(true);
         }
-        else if(lname. isEmpty())
+        else if(lname.trim().isEmpty())
         {
             jLabel_EmptyLastName_.setVisible(true);
         }    
@@ -429,8 +446,12 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
            
            author.addAuthor(fname, lname, expertise, about);
            
-        //to refresh Jtable with Genres
+        //to refresh Jtable with authors
         populateJtableWithAuthors();
+         
+        //hide jlabels
+        jLabel_EmptyLastName_.setVisible(false);
+        jLabel_EmptyFirstName_.setVisible(false);
         }
     }//GEN-LAST:event_jButton_Add_ActionPerformed
 
@@ -456,7 +477,7 @@ public final class ManageAuthorsForm extends javax.swing.JFrame {
          
     }//GEN-LAST:event_jTable_Authors_MouseClicked
 
-    //to create a function to populate the jtable with genres
+    //to create a function to populate the jtable with authors
     public void populateJtableWithAuthors()
     {
         
