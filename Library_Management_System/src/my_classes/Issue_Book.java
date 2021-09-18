@@ -178,10 +178,11 @@ public class Issue_Book {
   {
       boolean availability = false;
       try {
+          
           //first get the book quantity
           Book selectedBook = book.getBookById(_book_id);
-          int quantity = selectedBook.getQuantity();
           
+          int quantity = selectedBook.getQuantity();
           //get the number of books issued (the same book)
           int issued_book_count = countData(_book_id);
           

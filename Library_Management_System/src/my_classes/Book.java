@@ -35,6 +35,10 @@ public class Book {
     private Date dateofrecieved;
     private String description;
     private byte[] cover;
+    private String genre_name;
+    private String author_name;
+    private String status;
+    private String rack;
     
     public Book() {}
     
@@ -51,6 +55,25 @@ public class Book {
         this.dateofrecieved = _dateofrecieved;
         this.description = _description;
         this.cover =  _cover;  
+    }
+    
+    public Book(Integer _id, String _isbn,String _name, Integer _author_id,Integer _genre_id,Integer _quantity,String _publisher,double _price,Date _dateofrecieved,String _description,byte[] _cover, String _genre_name, String _author_name, String _status, String _rack)
+    {
+        this.id = _id;
+        this.isbn = _isbn;
+        this.name = _name;
+        this.author_id = _author_id;
+        this.genre_id = _genre_id;
+        this.quantity= _quantity;
+        this.publisher = _publisher;
+        this.price = _price;
+        this.dateofrecieved = _dateofrecieved;
+        this.description = _description;
+        this.cover =  _cover;
+        this.genre_name = _genre_name;
+        this.author_name = _author_name;
+        this.status = _status;
+        this.rack = _rack;
     }
 
     public void setId(Integer id) {
@@ -98,6 +121,23 @@ public class Book {
         this.cover = cover;
     }
 
+    public void setGenre_name(String genre_name) {
+        this.genre_name = genre_name;
+    }
+
+    public void setAuthor_name(String author_name) {
+        this.author_name = author_name;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setRack(String rack) {
+        this.rack = rack;
+    }
+
+    
     public Integer getId() {
         return id;
     }
@@ -141,6 +181,23 @@ public class Book {
     public byte[] getCover() {
         return cover;
     }
+
+    public String getGenre_name() {
+        return genre_name;
+    }
+
+    public String getAuthor_name() {
+        return author_name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getRack() {
+        return rack;
+    }
+    
     
     Func_Class func = new Func_Class();
     
@@ -313,12 +370,15 @@ public class Book {
     {
         ArrayList<Book> bList = new ArrayList<>();
         
-        
+        Genre genre = new Genre();
+        Author author = new Author();
+        Issue_Book issue_Book = new Issue_Book();
         
        
         try {
             if (query.equals("")) //if the user enter empty string make this the default select
             {
+                
                 query = "SELECT * FROM `books`";
             }
             
@@ -329,9 +389,30 @@ public class Book {
             while(rs.next())
            
             {
+                
+                
                 book = new Book(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getDouble(8), rs.getDate(9), rs.getString(10), rs.getBytes(11));
                 bList.add(book);
-            }    
+            }
+            
+            for(int i = 0; i < bList.size(); i++)
+            {
+                
+                bList.get(i).setGenre_name(genre.getGenreById(bList.get(i).getGenre_id()).getName());
+                bList.get(i).setRack(genre.getGenreById(bList.get(i).getGenre_id()).getRack());
+                
+                String author_full_name = author.getAuthorById(bList.get(i).getAuthor_id()).getFirstName()+ " " + author.getAuthorById(bList.get(i).getAuthor_id()).getLastName();
+                bList.get(i).setAuthor_name(author_full_name);
+                
+                boolean isAvailable = issue_Book.checkBookAvailability(bList.get(i).getId());
+                String availability;
+                if (isAvailable){
+                    availability = "Available";
+                }else{
+                    availability = "Not Available";
+                }
+                bList.get(i).setStatus(availability);
+            }
             
         } catch (SQLException ex) {
             Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
@@ -411,6 +492,11 @@ public class Book {
        }
       
    }
+  
+  
+   
+  
+  
    }
    
 

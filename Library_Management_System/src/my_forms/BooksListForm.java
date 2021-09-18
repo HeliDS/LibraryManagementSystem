@@ -281,7 +281,7 @@ public class BooksListForm extends javax.swing.JFrame {
         ArrayList<my_classes.Book> booksList = book.booksList(query);
         
         //jtable columns
-        String[] colNames = {"ID", "ISBN", "Title", "Author", "Genre", "Quantity","Publisher", "Price","Date-Recieved"} ; 
+        String[] colNames = {"ID", "ISBN", "Title", "Author", "Genre", "Quantity","Publisher", "Price","Rack","Status"} ; 
         
         //rows
         Object[][] rows = new Object[booksList.size()][colNames.length];
@@ -292,12 +292,16 @@ public class BooksListForm extends javax.swing.JFrame {
             rows [i] [0] = booksList.get (i) .getId();
             rows [i] [1] = booksList.get (i).getIsbn();
             rows [i] [2] = booksList.get (i).getName();
-            rows [i] [3] = booksList.get (i).getAuthor_id();
-            rows [i] [4] = booksList.get (i).getGenre_id();
+//            rows [i] [3] = booksList.get (i).getAuthor_id();
+            rows [i] [3] = booksList.get (i).getAuthor_name();
+//            rows [i] [4] = booksList.get (i).getGenre_id();
+            rows [i] [4] = booksList.get (i).getGenre_name();
             rows [i] [5] = booksList.get (i).getQuantity();
             rows [i] [6] = booksList.get (i).getPublisher();
             rows [i] [7] = booksList.get (i).getPrice();
-            rows [i] [8] = booksList.get (i).getDateofrecieved();
+//            rows [i] [8] = booksList.get (i).getDateofrecieved();
+            rows [i] [8] = booksList.get (i).getRack();
+            rows [i] [9] = booksList.get (i).getStatus();
         }    
         
         DefaultTableModel model = new DefaultTableModel (rows, colNames);
@@ -400,6 +404,9 @@ public class BooksListForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new BooksListForm().setVisible(true);
+                
+//              BooksListForm booksListForm =  new BooksListForm();
+//              booksListForm.setVisible(true);
             }
         });
     }
