@@ -370,7 +370,7 @@ public DashboardForm(String username, String password){
         jButton_ManageUsers.setBackground(new java.awt.Color(0, 51, 102));
         jButton_ManageUsers.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton_ManageUsers.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_ManageUsers.setText("Manage Users");
+        jButton_ManageUsers.setText("Manage Admin");
         jButton_ManageUsers.setContentAreaFilled(false);
         jButton_ManageUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -910,7 +910,7 @@ public DashboardForm(String username, String password){
 
     private void jButton_ManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ManageUsersActionPerformed
          // to show the manage users form (showonly for user type: owner)
-        ManageUsersForm mngUsersf = new ManageUsersForm();
+        ManageAdminForm mngUsersf = new ManageAdminForm();
         mngUsersf.setVisible(true);
     }//GEN-LAST:event_jButton_ManageUsersActionPerformed
 

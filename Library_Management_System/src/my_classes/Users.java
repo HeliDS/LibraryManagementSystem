@@ -22,6 +22,9 @@ public class Users {
     private int id;
     private String firstname;
     private String lastname;
+    private String email;
+    private String address;
+    private String contact;
     private String username;
     private String password;
     private String userType; //admin or simple user
@@ -51,6 +54,20 @@ public class Users {
      public String getUserType() {
         return userType;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+     
+     
     
     public void setId(int id) {
         this.id = id;
@@ -76,13 +93,30 @@ public class Users {
         this.userType = userType;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    
+    
     public Users() {
     }
 
-    public Users(int _id, String _firstname, String _lastname, String _username, String _password, String _user_type) {
+    public Users(int _id, String _firstname, String _lastname, String _email, String _address, String _contact, String _username, String _password, String _user_type) {
         this.id = _id;
         this.firstname = _firstname;
         this.lastname = _lastname;
+        this.email = _email;
+        this.address = _address;
+        this.contact = _contact;
         this.username = _username;
         this.password = _password;
         this.userType = _user_type;
@@ -91,18 +125,21 @@ public class Users {
     my_classes.Func_Class func = new Func_Class();
     
     //to insert a new user function
-    public void addUser(String _fname, String _lname, String _username, String _password, String _user_type)
+    public void addUser(String _fname, String _lname, String _email, String _address, String _contact, String _username, String _password, String _user_type)
     {
-        String insertQuery = "INSERT INTO `users_table`(`firstName`, `lastName`, `username`, `password`, `user_type`) VALUES (?,?,?,?,?)";
+        String insertQuery = "INSERT INTO `users_table`(`firstName`, `lastName`, `email address`, `address`, `contact no` , `username`, `password`, `user_type`) VALUES (?,?,?,?,?,?,?,?)";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(insertQuery);
             
             ps.setString(1, _fname);
             ps.setString(2, _lname);
-            ps.setString(3, _username);
-            ps.setString(4, _password);
-            ps.setString(5, _user_type);
+            ps.setString(3, _email);
+            ps.setString(4, _address);
+            ps.setString(5, _contact);
+            ps.setString(6, _username);
+            ps.setString(7, _password);
+            ps.setString(8, _user_type);
             
             
             if(ps.executeUpdate() != 0)
@@ -141,19 +178,22 @@ public class Users {
  
     
     //to edit user by id function
-    public void editUser(int _id, String _fname, String _lname, String _username, String _password, String _user_type)
+    public void editUser(int _id, String _fname, String _lname, String _email, String _address, String _contact, String _username, String _password, String _user_type)
     {
-        String editQuery = "UPDATE `users_table` SET `firstName`= ?,`lastName`= ?,`username`= ?,`password`= ?, `user_type` =? WHERE `id`=?";
+        String editQuery = "UPDATE `users_table` SET `firstName`= ?,`lastName`= ?,`email address`=?,`address`=?,`contact no`=?,`username`= ?,`password`= ?, `user_type` =? WHERE `id`=?";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(editQuery);
              
             ps.setString(1, _fname);
             ps.setString(2, _lname);
-            ps.setString(3, _username);
-            ps.setString(4, _password);
-            ps.setString(5, _user_type);
-            ps.setInt(6, _id);
+            ps.setString(3, _email);
+            ps.setString(4, _address);
+            ps.setString(5, _contact);
+            ps.setString(6, _username);
+            ps.setString(7, _password);
+            ps.setString(8, _user_type);
+            ps.setInt(9, _id);
             
             if(ps.executeUpdate() != 0)
             {
@@ -165,7 +205,15 @@ public class Users {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+            
+            if(_contact.length()>10){
+                JOptionPane.showMessageDialog(null, "Enter a valid Contact Number (should contain less than 10 numbers)", "Invalid Contact Number", 0);
+            }else{
+                Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex.getMessage() , "Error from DB Side", 0);
+            }
+            
+
         } 
     }
    
@@ -214,9 +262,10 @@ public class Users {
            
             {
                 //`id`, `firstName`, `lastName`, `username`,`password`,`user_type`
-                user = new Users(rs.getInt("id"), rs.getString("firstName"),rs.getString("lastName"),rs.getString("username"),rs.getString("password"), rs.getString("user_type"));
+                user = new Users(rs.getInt("id"), rs.getString("firstName"),rs.getString("lastName"),rs.getString("email address"),rs.getString("address"),rs.getString("contact no"),rs.getString("username"),rs.getString("password"), rs.getString("user_type"));
                 uList.add(user);
-            }    
+            } 
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
@@ -237,7 +286,7 @@ public class Users {
             while(rs.next())
            
             {
-                user = new Users(rs.getInt("id"), rs.getString("firstName"),rs.getString("lastName"),rs.getString("username"),rs.getString("password"),rs.getString("user_type"));
+                user = new Users(rs.getInt("id"), rs.getString("firstName"),rs.getString("lastName"),rs.getString("email address"),rs.getString("address"),rs.getString("contact no"),rs.getString("username"),rs.getString("password"),rs.getString("user_type"));
                 
             }  
         } catch (SQLException ex) {
