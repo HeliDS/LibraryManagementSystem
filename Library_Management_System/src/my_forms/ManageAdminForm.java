@@ -523,7 +523,7 @@ public final class ManageAdminForm extends javax.swing.JFrame {
         String password_2 = String.valueOf(jPasswordField_2.getPassword());
         String userType = "user";
         
-        if(jCheckBox_setOwner.isSelected()){userType = "admin";}
+        if(jCheckBox_setOwner.isSelected()){userType = "owner";}
         //check if the textfields are empty
         if(fname.trim().isEmpty()) //check the first name
         {
@@ -619,7 +619,7 @@ public final class ManageAdminForm extends javax.swing.JFrame {
         int id = Integer.parseInt(jTextField_ID.getText());
         
         //show confirmation message before removing the user
-        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to Delete this Author?", "Confirmation Box",JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to Delete this Admin?", "Confirmation Box",JOptionPane.YES_NO_OPTION);
          
          if (confirm == JOptionPane.YES_OPTION)
             {
@@ -720,6 +720,9 @@ public final class ManageAdminForm extends javax.swing.JFrame {
             jTextField_ID.setText("");
             jTextField_FirstName.setText("");
             jTextField_LastName.setText("");
+            jTextField_Email.setText("");
+            jTextField_Address.setText("");
+            jTextField_Contact.setText("");
             jTextField_Username.setText("");
             jPasswordField_1.setText("");
             jPasswordField_2.setText("");

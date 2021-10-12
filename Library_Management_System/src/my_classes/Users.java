@@ -127,7 +127,7 @@ public class Users {
     //to insert a new user function
     public void addUser(String _fname, String _lname, String _email, String _address, String _contact, String _username, String _password, String _user_type)
     {
-        String insertQuery = "INSERT INTO `users_table`(`firstName`, `lastName`, `email address`, `address`, `contact no` , `username`, `password`, `user_type`) VALUES (?,?,?,?,?,?,?,?)";
+        String insertQuery = "INSERT INTO `employee`(`firstName`, `lastName`, `email address`, `address`, `contact no` , `username`, `password`, `user_type`) VALUES (?,?,?,?,?,?,?,?)";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(insertQuery);
@@ -159,7 +159,7 @@ public class Users {
     //to create a function to check if the username already exists
     public boolean checkUsernameExists(int _id, String _username)
     {
-    ResultSet rs = func.getData("SELECT * FROM `users_table` WHERE `username` = '"+ _username +"' and id <> " + _id);
+    ResultSet rs = func.getData("SELECT * FROM `employee` WHERE `username` = '"+ _username +"' and id <> " + _id);
     boolean exists = false;        
            
             
@@ -180,7 +180,7 @@ public class Users {
     //to edit user by id function
     public void editUser(int _id, String _fname, String _lname, String _email, String _address, String _contact, String _username, String _password, String _user_type)
     {
-        String editQuery = "UPDATE `users_table` SET `firstName`= ?,`lastName`= ?,`email address`=?,`address`=?,`contact no`=?,`username`= ?,`password`= ?, `user_type` =? WHERE `id`=?";
+        String editQuery = "UPDATE `employee` SET `firstName`= ?,`lastName`= ?,`email address`=?,`address`=?,`contact no`=?,`username`= ?,`password`= ?, `user_type` =? WHERE `id`=?";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(editQuery);
@@ -220,7 +220,7 @@ public class Users {
      //to remove user  
       public void removeUser(int _id)
     {
-        String removeQuery = "DELETE FROM `users_table` WHERE `id`= ?";
+        String removeQuery = "DELETE FROM `employee` WHERE `id`= ?";
         try {
             
             PreparedStatement ps = DB.getConnection().prepareStatement(removeQuery);
@@ -254,7 +254,7 @@ public class Users {
         try {
             
             //don't show the owner data
-            ResultSet rs = func.getData("SELECT * FROM `users_table`where user_type <> 'owner'");
+            ResultSet rs = func.getData("SELECT * FROM `employee`where user_type <> 'owner'");
             
             Users user;
             
@@ -278,7 +278,7 @@ public class Users {
     public Users tryLogin(String _username, String _password)
     {
        
-        ResultSet rs = func.getData("SELECT * FROM `users_table` where username = '"+_username+"' and password = '"+_password+"'");
+        ResultSet rs = func.getData("SELECT * FROM `employee` where username = '"+_username+"' and password = '"+_password+"'");
             
             Users user = null;
             
